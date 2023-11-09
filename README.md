@@ -15219,6 +15219,8 @@ _Monkey_
 _null_
 
 
+$$<
+
 #### The ```Map``` ```interface```
 The ```Map``` ```interface``` specifies a contract to implement collections of elements, that are in the form of ```(key, value)``` pairs.  
 
@@ -15246,10 +15248,14 @@ The ```interface``` definition looks something like:
 	* ```LinkedHashMap```
 	* ```TreeMap```
 
+
+isEmpty() , containsKey(key) , containsValue(value) , get(key) ,put(key,value) ,remove(key) , putAll(map) , clear() ; map.keySet() ->returns set of keys of map ;
+values() ->returns values of map as list ; entrySet() ;
+
 #### ```Map``` Collections : Concepts
 
 * ```HashMap```
-	* Unordered
+	* Unordered (no insertion order)
 	* Unsorted
 	* Key's ```hashCode()``` value is used in the hashing function
 	* Allows a key with a ```null``` value.
@@ -15309,6 +15315,10 @@ The ```Map.of()``` method takes a sequence of objects, which are interpreted as 
 	jshell>
 
 ```
+
+Anything we create with .of are immutable (for example List.of() ,Set.of() and Map.of()).
+
+SS$$SS
 
 ##### Snippet-20 : Mutable Maps
 
