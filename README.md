@@ -14833,15 +14833,55 @@ Note that when the ```hashSet``` was constructed using the ```set```, the order 
 
 ```
 
+$$<
+
 #### Understanding Data Structures
+The set interface is present in java.util package and extends the Collection interface.Classes that implement the Set interface.HashSet
+EnumSet
+LinkedHashSet
+TreeSet
+
+HashSet internally uses HashMap for storing objects.HashSet obj = new HashSet();  
+If you don’t want to maintain insertion order but want to store unique objects.
+HashSet uses equals() and hashCode() methods to compare the objects.
+HashSet allows only one null value.
+
+LinkedHashSet uses LinkedHashMap internally to store objects.LinkedHashSet obj = new LinkedHashSet();   
+If you want to maintain the insertion order of elements then you can use LinkedHashSet.
+slowest performance.
+LinkedHashSet uses equals() and hashCode() methods to compare it’s objects.
+LinkedHashSet allows only one null value.
+
+TreeSet uses TreeMap internally to store objects.TreeSet obj = new TreeSet();  
+By default, objects will be placed according to their natural ascending order.If you want to sort the elements according to some Comparator then use TreeSet.
+Better performance except for insertion and removal operations because it has to sort the elements after each insertion and removal operation.
+TreeSet uses compare() and compareTo() methods to compare the objects.
+TreeSet does not permit null value. If you insert null value into TreeSet, it will throw NullPointerException.
+
+
+
+
 
 ##### Hash Table
+
+Hashing combines fixed position of elements in array and linked list advantages(Visualise linked lists as an elements in array)
+HashMap and Hashtable store key and value pairs in a hash table. 
+The key is then hashed, and the resulting hash code is used as the index at which the value is stored within the table.
+
+HashMap is non-synchronized. It is not thread-safe and can’t be shared between many threads without proper synchronization code whereas Hashtable is synchronized. It is thread-safe and can be shared with many threads.
+
+HashMap allows one null key and multiple null values whereas Hashtable doesn’t allow any null key or value.
+ 
+ why HashTable doesn’t allow null and HashMap do? 
+  In order to successfully store and retrieve objects from a HashTable, the objects used as keys must implement the hashCode method and the equals method. Since null is not an object, it can’t implement these methods. HashMap is an advanced version and improvement on the Hashtable.
+
+  
 * Hash Table: A data structure that attempts to combine the best of both worlds:	
 	* Very efficient element access
 	* Very efficient element insertion and deletion 
 * Buckets : They are the slots in the hash table, into which elements are inserted and chained together. As you can see, a hash table is effectively a large array of buckets, each containing a small linked list.
 * Hashing: A procedure called **hashing** used in the construction of the Hash Table. The term **hash** generally means *mix up the order of elements*.
-* Hashing Function: A formula to determine/compute which bucket a particular element gets inserted into. For illustration: ```hash(elem)``` could compute ```elem mod 13``` mathematically, and uses that value to index into the table, to locate the bucket insertion. The ```Object.hashCode()``` could be used as a hashing function.
+* Hashing Function: A formula to determine/compute which bucket a particular element gets inserted into. For illustration: ```hash(elem)``` could compute ```elem mod 13``` mathematically, and uses that value to index into the table, to locate the bucket insertion. The ```Object.hashCode()``` could be used as a hashing function. element value 15 will be on 2nd index -  15 mod 13 is 2 ; 34 mod 13 is 8 so element 34 will be on index 8. So element mode size give index where element should store.Efficiency of hashtable depends on hashing function.
 * Collisions: Leads to chaining within a bucket, where a linked list grows. The larger the table, and the cleverer the hashing function, the lesser the chance for collisions.
 
 ##### Tree
