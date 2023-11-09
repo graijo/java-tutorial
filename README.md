@@ -14835,31 +14835,67 @@ Note that when the ```hashSet``` was constructed using the ```set```, the order 
 
 $$<
 
+https://www.in28minutes.com/flashcard-java-12-02-collections
+
+https://www.in28minutes.com/flashcard-java-12-01-collections
+
+https://www.in28minutes.com/flashcard-java-11-objectorientedprogrammingagain
+
 #### Understanding Data Structures
-The set interface is present in java.util package and extends the Collection interface.Classes that implement the Set interface.HashSet
+The set interface is present in java.util package and extends the Collection interface.Classes that implement the Set interface.
+
+HashSet
+
 EnumSet
+
 LinkedHashSet
+
 TreeSet
 
-HashSet internally uses HashMap for storing objects.HashSet obj = new HashSet();  
-If you don’t want to maintain insertion order but want to store unique objects.
-HashSet uses equals() and hashCode() methods to compare the objects.
-HashSet allows only one null value.
+TreeSet<String> geekTreeSet = new TreeSet<>();
 
-LinkedHashSet uses LinkedHashMap internally to store objects.LinkedHashSet obj = new LinkedHashSet();   
-If you want to maintain the insertion order of elements then you can use LinkedHashSet.
-slowest performance.
-LinkedHashSet uses equals() and hashCode() methods to compare it’s objects.
-LinkedHashSet allows only one null value.
+HashSet<String> geekHashSet = new HashSet<String>();
 
-TreeSet uses TreeMap internally to store objects.TreeSet obj = new TreeSet();  
-By default, objects will be placed according to their natural ascending order.If you want to sort the elements according to some Comparator then use TreeSet.
-Better performance except for insertion and removal operations because it has to sort the elements after each insertion and removal operation.
-TreeSet uses compare() and compareTo() methods to compare the objects.
-TreeSet does not permit null value. If you insert null value into TreeSet, it will throw NullPointerException.
+How to initialize set using List
 
+List<String> aList = Arrays.asList("Geeks", "for", 
+                     "GeeksQuiz", "GeeksforGeeks", "GFG"); 
+  
+        // Creating a hash set using constructor 
+        Set<String> hSet = new HashSet<String>(aList); 
 
+ How to initialize set using addAll method
 
+ setObject.addAll(ListObject);
+
+ List<String> aList =new ArrayList<>(List.of("2","432","sdg"));
+
+  Set<String> hSet =new HashSet<>(Set.of("2","432","sdg"));
+  
+
+HashSet internally uses HashMap for storing objects.HashSet obj = new HashSet();   ||  
+Just to store unique objects.Stored in random order.   ||  
+HashSet uses equals() and hashCode() methods to compare the objects.   ||  
+HashSet allows only one null value.   ||  
+
+LinkedHashSet uses LinkedHashMap internally to store objects.LinkedHashSet obj = new LinkedHashSet();     ||  
+To maintain the insertion order of elements.   ||  
+slowest performance.   ||  
+LinkedHashSet uses equals() and hashCode() methods to compare it’s objects.   ||  
+LinkedHashSet allows only one null value.   ||  
+
+TreeSet uses TreeMap internally to store objects.TreeSet obj = new TreeSet();     ||  
+By default, objects will be placed according to their natural ascending order.If you want to sort the elements according to some Comparator then use TreeSet.   ||  
+Better performance except for insertion and removal operations because it has to sort the elements after each insertion and removal operation.   ||  
+TreeSet uses compare() and compareTo() methods to compare the objects.   ||  
+TreeSet does not permit null value. If you insert null value into TreeSet, it will throw NullPointerException.   ||  
+
+TreeSet implement NavigableSet which has some good methods like floor(element) -to find <or= elements , lower(element) = to find element lower than ,ceiling(element) = to find >= to element .
+
+treeset.subSet(lower limit,upper limi) -- will find elements between lower and upper limit. Lower limit is inclusive and upper limit is exclusive.
+
+SET does not have get() method to do positional access.   ||  
+Set has to convert to array or list and then can do positional access.
 
 
 ##### Hash Table
@@ -14894,6 +14930,8 @@ HashMap allows one null key and multiple null values whereas Hashtable doesn’t
 * HashSet
 * LinkedHashSet
 * TreeSet
+
+SS$$SS
 
 ##### Snippet-14 : HashSet
 
@@ -15084,6 +15122,8 @@ Let's look at few operations:
 
 ```
 
+$$<
+
 #### The ```Queue``` Interface
 
 ```Queue``` ```interface``` : ```extends``` the ```Collection``` ```interface```. 
@@ -15127,6 +15167,10 @@ The ```PriorityQueue``` ```queue``` stores the strings in ascending alphabetic o
 	jshell>
 
 ```
+
+list,set and queue extend collection.Map does not extend collection class so dont inherit its methods.
+SS$$SS
+
 
 ##### Snippet-18 : Custom Priority PriorityQueue
 
