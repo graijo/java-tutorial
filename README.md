@@ -3560,7 +3560,10 @@ In this step, we:
 * Understood the role of the Java compiler in translating source code
 * Realized the need for an Intermediate Representation (IR) such as bytecode
 * Understood how the (Compiler + JVM + OS) combination ensure source code portability
-*  **JVM** is different for different OS ,but bytecode is platform independent>$$
+*  **JVM** is different for different OS ,but bytecode is platform independent>
+* Java can be considered both a compiled and an interpreted language because its source code is first compiled into a binary byte-code. This byte-code runs on the Java Virtual Machine (JVM), which is usually a software-based interpreter.\
+* JavaScript is an interpreted language, not a compiled language. A program such as C++ or Java needs to be compiled before it is run. The source code is passed through a program called a compiler, which translates it into bytecode that the machine understands and can execute.JS-Interpreter interpret code line by line.
+*  $$
 
 ### Step 02: Creating a Java ```class```
 
@@ -3913,7 +3916,7 @@ $$<
 *  1- first compile the code using javac fileName ,
 *   .class file will be created on same directory with same name of .java file
 * 2- then run bytecode using java fileName```
-*    java pgm executed 
+*  Then  java pgm executed 
 $$
 ### Step 06: Puzzles About ```Planet```
 
@@ -4122,7 +4125,7 @@ The **JVM** runs your program bytecode.
 
 **JRE** = **JVM** + **Libraries** + **Other Components**
 
-* *Libraries* are built-in Java utilities that can be used within any program you create. ```System.out.println()``` was a method in ```java.lang```, one such utility.
+* *Libraries* are built-in Java utilities that can be used within any program you create. ```System.out.println()``` was a method in ```java.lang```, one such utility (Usually, a method is invoked by objectname.methodname(). PrintStream obj.print("Hello");  But you cannot create the object to PrintStream class directly as above. So, Java provides an alternative way to create the object of PrintStream class that is System.out.  System is the class name, it is declared as final. The out is an instance of the System class . It is an instance of java.io.PrintStream. When we call the member, a PrintStream class object creates internally.)
 * *Other Components* include tools for debugging and code profiling (for memory management and performance).
 
 
@@ -4289,7 +4292,12 @@ That is because Java source code is governed by strict **Scope Rules**.
 
 
 Let's have another look at where we have reached with our solution, to the *PMT-Challenge* problem. Only now, let's change the code arrangement.
+
 $$check how format specifiers used in syso in snippert-01 
+The {} notation is much more efficient than the %s %d String format notation while using loggers.
+ printf is to format string(takes 2 argument).%d for integer,%s for string and arrays,\n for new line.
+ 
+ println is for print and move to newline(takes 1 argument).
 (more info on https://stackoverflow.com/questions/43359850/how-can-i-print-this-2-variables-in-the-same-println-system-out-println
 https://stackoverflow.com/questions/41532840/log4j2-using-against-using-d-or-s 
 https://www.slf4j.org/faq.html#logging_performance)
@@ -5385,7 +5393,7 @@ _Clean Code_
 
 ### Step 05: ```MotorBike``` -  Representing State
 $$<
-An object encapsulates both *state* and *behavior*. 
+An object encapsulates both data (*state*) and *behavior*. 
 
 *State* defines "the condition of the object at a given time". *State* is represented by **member variables**. 
 
@@ -5565,7 +5573,8 @@ no modifier |  Y    |    Y    |    N     |   N
 
 private     |  Y    |    N    |    N     |   N
 
-$$
+SS$$SS
+
 
 #### Classroom Exercise CE-OO-02
 
@@ -5816,7 +5825,9 @@ In this step, we:
 * Explored the first advantage of encapsulation - A provision for adding data validation
 * Highlighted how such validation can be done, using the ```Motorbike``` example
 
-$$
+
+SS$$SS
+
 
 ### Step 11: Encapsulation - Advantages (Code Reuse)
 
@@ -6257,6 +6268,8 @@ When we create Ducati and Honda motorbikes, we may want to configure them with s
 
 Suppose our whim is that a Ducati bike starts with 100 mph, and a Honda with 200 mph. 
 
+$$<
+
 > *** Note ***
 > 
 > no return type needed.
@@ -6264,6 +6277,9 @@ Suppose our whim is that a Ducati bike starts with 100 mph, and a Honda with 200
 > Constructor used to pass values to instance variable during object creation itself.
 > 
 > for eg: place order object creation can take parameters if has a parameterized constructor .
+
+SS$$SS
+
 
 ##### Snippet-1: MotorBike Constructor
 
@@ -6594,13 +6610,15 @@ Integers are not much of a mystery, are they? They've been part of us since our 
 Java supports them with ease, and we have coded quite a few examples using them, already. 
 
 Java also has a **wrapper class** corresponding to each of them, which make their primitive versions more versatile. The wrapper classes we are talking about are:
+
 $$
-wrapper classes are used to wrap primitive data types such as int, char, etc. into objects
+wrapper classes are classes that wrap primitive data types such as int, char, etc. into an objects
 * ```Byte```: for ```byte```
 * ```Short```: matching ```short```
 * ```Integer``` corresponding to ```int```
 * ```Long```: about ```long```
 SS$$SS
+
 Let's see how we can work with them.
 
 ##### Snippet-01 : Integer Sizes
@@ -7057,7 +7075,7 @@ In this step, we:
 * Understood that ```BigDecimal``` is immutable
 * Saw that accuracy is best achieved when you construct ```BigDecimal``` data using string literals 
 
-$$
+SS$$SS
 
 ### Step 06: BigDecimal Operations
 
