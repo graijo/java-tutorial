@@ -8139,6 +8139,10 @@ Let's now try to get a match with the ```else``` clause, the only one unexplored
 When ```i``` is given a value of ```26```, the first two conditions are false. Hence, the code in the `else` gets executed. 
 $$<
 _**one, and only one** clause among those present in an  ```if```-```else if```-```else``` statement ever evaluates to ```true```. Also, the code block corresponding to the matched clause will get executed. This is ensured even if conditions are *duplicated*, or *overlap*. In that scenario, only the first such condition, downward from the ```if``` in sequence, will evaluate to ```true```. The remaining possible matches are not even checked._
+
+Only 1st if or elseif block which evaluate true will be executed when multiple blocks become true.Along with else block if that also true.
+
+
 SS$$SS
 #### Summary
 
@@ -8300,6 +8304,7 @@ _**Compiler Error**_
 **_6_**
 
 > In the absence of explicit blocks, Only the statement next to the if statement is considered to be part of the if statement block.
+> If expression should have boolean value or yield boolean value.
 
 SS$$SS
 
@@ -9097,7 +9102,27 @@ In this step, we:
 
 * Observed that the same conditional code could be written using an ```if```-family conditional, or the ```switch```.
 * Learned that an ```if``` family conditional is difficult to get wrong, as the rules for it are very strict. It can be used to evaluate only ```boolean``` conditions. But it is verbose, and often less readable.
-* Came to know that a ```switch``` conditional can be used to check for only integer values. It is very compact, and very readable. However, the relative order of ```case``` clauses and ```default``` are not fixed, and the usage of ```break``` is optional. This can lead to subtle errors in your program. 
+* It is very compact, and very readable. However, the relative order of ```case``` clauses and ```default``` are not fixed, and the usage of ```break``` is optional. This can lead to subtle errors in your program. 
+
+```java
+switch(expression) {
+  case x:
+    // code block
+    break;
+  case y:
+    // code block
+    break;
+  default:
+    // code block
+}
+```
+
+The switch expression is evaluated once.
+The value of the expression is compared with the values of each case.
+If there is a match, the associated block of code is executed.
+The break and default keywords are optional, and will be described later in this chapter
+
+A switch works with the byte, short, char, and int primitive data types. It also works with enumerated types (discussed in Enum Types), the String class, and a few special classes that wrap certain primitive types: Character, Byte, Short, and Integer.
 
 SS$$SS
 
@@ -9180,6 +9205,8 @@ SS$$SS
 $$<
 ### Step 12: Introducing ```?:```, The Ternary Operator
 - - - 
+
+The operators indicate what action or operation to perform. The operands indicate what items to apply the action to.
 
 The ternary operator ```?:``` is a logical operator, that works on three operands. Its functioning is similar to an ```if```-```else``` statement (Checking for just ```2``` conditions). Exactly one  of the two expressions is guaranteed to match.
 
@@ -9841,6 +9868,13 @@ $$<
 
 ```join()``` is used to join a set of `String` values.
 
+String.join(" ","helow","world");//1st argument is delimiter
+
+stringVar1.concat(stringVar2);
+
+
+output hellow world
+
 ```java
 	jshell> String.join(",", "2", "3", "4");
 	$8 ==> "2,3,4"
@@ -9867,6 +9901,7 @@ In this step, we:
 * Noticed a few more ```String``` utility methods, such as ```join()``` and ```replace()```
 
 SS$$SS
+
 $$<
 
 ### Step 07: Storing mutable text
