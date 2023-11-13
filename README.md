@@ -9960,7 +9960,8 @@ Following is a list of built-in Java wrapper classes and their corresponding pri
 
 The main incentives of using such wrappers in your code, are:
 * Accessing type information about the corresponding primitive type
-* Auto-Boxing feature, where a primitive data is automatically promoted to an object  reference type
+* Auto-Boxing feature, where a primitive data is automatically promoted to an object  reference type.
+* As List does not support primitive data type
 * Moving primitive type data around data structures (called *collections*), using their wrapper-style counterparts
 
 Let's look at these incentives in the next step.
@@ -10005,6 +10006,8 @@ You can also use ```valueOf()``` method within types such as ```Integer``` and `
 ```
 
 #### Difference between creating wrapper objects using valueOf and new
+
+WrapperClass.valueOf(value)
 
 The ```Integer.valueOf()``` reuses existing ```Integer``` objects with same value on the heap. If an object with same value is present in the heap, it returns a reference to existing object. Otherwise, it returns a reference of a newly created ```Integer``` object.
 
@@ -10081,6 +10084,7 @@ In this step, we:
 
 
 SS$$SS
+
 $$<
 
 ### Step 11: The Java ```Date``` API
@@ -10219,7 +10223,7 @@ You can also compare dates using the methods shown below:
 
 These methods are also available with ```LocalTime``` and ```LocalDateTime``` classes as well.
 
-### ****For mutable classes (String , LocalDate ,Integer etc) -All modification method calls will return new objects. **** 
+### ****For mutable classes (String , LocalDate ,Wrapper classes etc) -All modification method calls will return new objects. **** 
 
 SS$$SS
 
@@ -10324,11 +10328,12 @@ Above construct is called Enhanced ```for``` loop.
 ```mark``` is the loop control variable. Its type needs to match the type of an array elements, which is ```int```.
 
 Above ```for``` loop can be used irrespective of the number of elements in `marks` array.
+
 $$<
 
 ### Step 02:  Storing And Accessing Array Values
 
-Let's dig deeper into arrays in this step.
+dataType[] arrayVar=new dataType[sizeOfArray];
 
 An array can be used to store zero or more number of elements. 
 
@@ -10436,6 +10441,8 @@ Below snippet shows how arrays with different types are initialized.
 
 Summary - int - 0, double - 0.0, boolean - false, Any object - null
 
+Array support primitive data type ,class object and wrapper class types.
+
 ```java
 
 	jshell> int[] marks = new int[5];
@@ -10504,6 +10511,7 @@ The built-in method ```Arrays.toString``` can be used to print out elements of a
 ```
 
 SS$$SS
+
 SS<
 
 ### Step 05: Array Utilities
@@ -10556,7 +10564,7 @@ Using an enhanced ```for``` loop is easy and intutive.
 	marks ==> int[5]{ 100,100,100,100,100 }
 ```
 
-```Array.equals``` compares two given arrays, and returns a ```boolean``` value of```true``` only if
+```Arrays.equals``` compares two given arrays, and returns a ```boolean``` value of```true``` only if
 * Both arrays are of same length and
 * Elements at each corresponding index are equal, for all indexes
 
@@ -10581,7 +10589,7 @@ Using an enhanced ```for``` loop is easy and intutive.
 	$3 ==> false
 ```
 
-```Array.sort```: Performs an in-position sorting of elements by comparing pairs of them at a time.
+```Arrays.sort```: Performs an in-position sorting of elements by comparing pairs of them at a time.
 ```java
 	jshell> Arrays.sort(array3);
 	jshell> array3
@@ -10590,9 +10598,11 @@ Using an enhanced ```for``` loop is easy and intutive.
 
 ```
 
+### Class_Name[] obj= new Class_Name[Array_Length];
+
 SS$$SS
 
-### Class_Name[] obj= new Class_Name[Array_Length];
+
 
 ### Step 06: Classroom Exercise  CE-AA-02
 
@@ -10705,7 +10715,7 @@ $$<
 
 ### Step 08:  Variable Arguments - The Basics
 
-What if you want to create a method which can accept variable number of arguments?
+What if you want to create a method which can accept variable number of arguments? Datatype...VariableName
 
 Let's look at an example. The critical part is the parameter `int... values`.
 
@@ -10919,6 +10929,26 @@ Here's how you can initialize a `String` array.
 	jshell>
 	
 ```
+
+ NullPointerException :- the variable is assigned as null.A null pointer exception will occur when the code is pointing to something in memory that does not exist.
+ 
+ Calling the instance method of a null object.
+Accessing or modifying the field of a null object.
+Taking the length of null as if it were an array.
+Accessing or modifying the slots of null as if it were an array.
+Throwing null as if it were a Throwable value.
+
+Solution:-- adding a check for null before attempting to access the element.
+
+Some tips for avoiding a NullPointerException include:
+
+Perform null checks to ensure that objects are correctly initialized before accessing any of the object’s methods.
+Use primitives (where it makes sense) such as int, boolean and char, as these cannot be assigned as null and therefore cannot cause a NullPointerException.
+When first initializing objects, attempt to assign default or temporary values to them.
+Use a tool like FindBugs, which performs static analysis of code and can detect NullPointerException issues before you actually execute any of your code.
+Use a tool like NullAway which acts on @NotNull and @Nullable annotations.
+
+https://www.baeldung.com/java-notnull-method-parameter
 SS$$SS
 
 #### Classroom Exercise CE-AA-03 
