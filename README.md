@@ -11792,7 +11792,8 @@ _Rectangle - length : 12, width : 25, area : 300, perimeter : 74_
 
 _Rectangle - length : 20, width : 25, area : 500, perimeter : 90_
 
-$$
+
+SS$$SS
 
 
 #### Solution Explained
@@ -11825,7 +11826,7 @@ Let's take a re-look at the state attributes of the ```Fan``` ```class```:
 
 All member variables of 'Fan' class are primitive variables. Can we make it complex and include other classes?
 
-$$
+SS$$SS
 
 
 ##### Snippet-01 : Object composition - State
@@ -12196,6 +12197,7 @@ In Java, it is permitted for a super-class reference variable to reference a sub
 the converse assignment is not allowed and throws compilation error.**
 
 SS$$SS
+
 $$<
 
 Let's look at two classes `Person` and `Student`.
@@ -12553,7 +12555,7 @@ Sub-class inherit features from super-class
 
 These are of course, available for access (and modification), and invocation, respectively, within the sub-class. 
 
-$$<
+$$< 119
 
 You can also override super class method implementations in a sub class - **method overriding**. 
 
