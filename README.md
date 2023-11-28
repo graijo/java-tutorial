@@ -16058,7 +16058,18 @@ list.stream()
 
 .forEach( element -> System.out.println(element)  );
 
+```java
+        list.stream().
+                filter(element -> element.startsWith("ca"))
+                .forEach(element->System.out.println(element));
 
+        list.stream()
+                .filter(element-> element.equals("flower"))
+                .forEach(element ->
+                        {System.out.println("checking equals condition ");
+                        System.out.println(element);}
+                );
+```
 
 
 SS$$SS
