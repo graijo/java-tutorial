@@ -16058,17 +16058,73 @@ list.stream()
 
 .forEach( element -> System.out.println(element)  );
 
+
+filtering
+
+
 ```java
         list.stream().
                 filter(element -> element.startsWith("ca"))
                 .forEach(element->System.out.println(element));
+```
 
+use curly braces {} used in case to add multiple lines of code
+
+
+```java
         list.stream()
                 .filter(element-> element.equals("flower"))
                 .forEach(element ->
                         {System.out.println("checking equals condition ");
                         System.out.println(element);}
                 );
+```
+
+Another way to do it, this time hiding those multiple lines in a method:
+
+```java
+class Counter { // wrapper class
+    private int count;
+    public int getCount() { return count; }
+    public void increaseCount( Object o ) {
+        System.out.println(o);
+        count++;
+    }
+}
+```
+
+and then
+
+
+```java
+Counter counter = new Counter();
+lines.stream().forEach( counter::increaseCount );
+```
+
+
+Use of reduce method
+```java
+        //find sume of  numbers
+
+        List<Integer> integers=new ArrayList<>(List.of(2,4,1,2,3));
+       Integer sum= integers.stream()
+                .reduce(
+                        0,
+                        (element1,element2) -> element1+element2
+                );
+        System.out.println(sum);
+
+
+        //find sum of even numbers
+
+        List<Integer> integers1=new ArrayList<>(List.of(2,4,1,2,3));
+        Integer sumEven= integers1.stream()
+                .filter(element->element%2==0)
+                .reduce(
+                        0,
+                        (element1,element2) -> element1+element2
+                );
+        System.out.println(sumEven);
 ```
 
 
@@ -16376,6 +16432,10 @@ Let's have a re-look at the **_FPNumberRunner.java_** program from the previous 
 * ```basicSum()```: that used the traditional approach
 * ```fpSum()``: which followed the *FP* scheme of things
 
+
+$$
+
+
 Let's use them as benchmarks, to illustrate the core differences between *SP* and *FP*. 
 
 1. **Structured Programming** (**SP**)
@@ -16412,6 +16472,9 @@ How are these different?
 * The **what** and **how** of computation:
 	1. *SP*: We specify both *what* to do, and *how* to do it. The code loops through the list elements using a ```for```, while also updating the aggregate value in ```sum```.
 	2. *FP*: We are focused on *what* to do, and very little on the *how* part. ```reduce()``` takes care of what numbers from the *stream* to add up, and you don't bother about how to select them from the *stream*. 
+
+
+SS$$SS
 
 
 ### Step 07: Some FP Terminology 
