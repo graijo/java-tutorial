@@ -15604,6 +15604,14 @@ Generics :- Class not tied to 1 type.
 
 to define in class. Add ```<T>``` in class definition to use generic type.
 
+ ```java
+class MyGen<T>{  
+T obj;  
+void add(T obj){this.obj=obj;}  
+T get(){return obj;}  
+}  
+ ```
+
 T stand for Type but any letter or word can be used in upper case like ```<E>``` or ```<TYPE>``` .
 
 During object creation, data type can be specified.
@@ -15619,19 +15627,41 @@ Bype,Short,Integer,Long,Float & Double are sub classess of Number.
 
 In class definition , ```<T extends Number>```  ,then object creation can be possible with subclasses of Number.
 
+
 How to use generic in Method?
+
+generic class, we can create a generic method that can accept any type of arguments. Here, the scope of arguments is limited to the method where it is declared.
 
  ```java
 
  <X> X methodname(X value){
-
 return value;
-
 }
 
 String value=methodName(new String());
-
 List list=methodName(new ArrayList());
+
+
+
+public class TestGenerics4{  
+  
+   public static < E > void printArray(E[] elements) {  
+        for ( E element : elements){          
+            System.out.println(element );  
+         }  
+         System.out.println();  
+    }  
+    public static void main( String args[] ) {  
+        Integer[] intArray = { 10, 20, 30, 40, 50 };  
+        Character[] charArray = { 'J', 'A', 'V', 'A', 'T','P','O','I','N','T' };  
+  
+        System.out.println( "Printing Integer Array" );  
+        printArray( intArray  );   
+  
+       System.out.println( "Printing Character Array" );  
+        printArray( charArray );   
+    }   
+}  
 
 ```
 
@@ -15649,6 +15679,13 @@ list.addAll(list); //code to duplicate list
  ```
 
 ^^ Generic extends List and hence variable can use any methods in List class
+
+
+Wildcard in Java Generics
+
+The ? (question mark) symbol represents the wildcard element. It means any type. If we write <? extends Number>, it means any child class of Number, e.g., Integer, Float, and double. We can use a wildcard as a type of a parameter, field, return type, or local variable. However, it is not allowed to use a wildcard as a type argument for a generic method invocation, a generic class instance creation, or a supertype.
+
+https://www.javatpoint.com/generics-in-java
 
 SS$$SS
 
