@@ -15602,7 +15602,7 @@ Let's quickly review what we've learnt:
 $$
 Generics :- Class not tied to 1 type.
 
-to define in class. Add <T> in class definition to use generic type.
+to define in class. Add ```<T>``` in class definition to use generic type.
 
 T stand for Type but any letter or word can be used in upper case like <E> or <TYPE> .
 
