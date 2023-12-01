@@ -14606,6 +14606,9 @@ The ```ArrayList.sort()``` method requires the definition of a ```Comparator``` 
 
 $$<
 
+If data type of list is user defiened(ie class object), and the list is sorted using Collections.sort(list) , then the class needs to implemet Comparable interface.Otherwise cause compilation error. Comparable infterface has compareTo method which needs to be overrided in the implementing class.
+
+
 #### Sorting List
 
 ##### Snippet-9 : Sorting List
