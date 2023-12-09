@@ -16173,6 +16173,7 @@ Use of reduce method
         System.out.println(sumEven);
 ```
 
+Accumulator(starting value) is zero at starting.taking 2 elements(pair) at a time.
 
 SS$$SS
 
